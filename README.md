@@ -29,7 +29,12 @@ class persona(models.Model):
 name es el nombre del campo que se utilizará como índice, siempre se debe llamar así.
 Ahora vamos a comprobar el funcionamiento del modelo creado.
 Cada vez que se modifique un fichero python, deberemos reiniar Odoo.
+
 ~~~~
+Para ver el fichero log de Odoo:
+tail -f /var/log/odoo/odoo-server.log
+
+Reiniciar:
 sudo /etc/init.d/odoo restart 
 ~~~~
 
