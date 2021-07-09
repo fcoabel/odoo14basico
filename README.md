@@ -12,6 +12,10 @@ sudo ./odoo-bin scaffold ejemplo ./addons/
 Siendo ejemplo el nombre del módulo. 
 
 ### Creación de un modelo.
+Crearemos el siguiente modelo:
+
+![](images/modelobasedatos.png)
+
  En models/models.py añadimos la defininón del nuevo modelo:
 ~~~~
 
@@ -51,3 +55,8 @@ Ajustes -> Técnico -> Estructura de la base de datos -> modelos, si todo funcio
 tamnién tendrá otros campos internos de Odoo.
 
 ![](images/modelo.png)
+
+###Creación de vistas
+
+
+
