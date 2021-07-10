@@ -70,6 +70,31 @@
       </field>
     </record>
 
+
+    <record model="ir.ui.view" id="ejemplo.persona_form_view">
+      <field name="name">ejemplo.persona.view.form</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <form string="Información persona">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                DNI <field name="name" placeholder="dni"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="telefono"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
     <!-- Definición de menús-->
 
     <!-- actions opening views on models -->
