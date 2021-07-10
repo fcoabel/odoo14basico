@@ -116,12 +116,12 @@
 
 
 
-<!--
+
     <record model="ir.ui.view" id="ejemplo.persona_calendar_view">
       <field name="name">ejemplo.persona.view.calendar</field>
       <field name="model">ejemplo.persona</field>
       <field name="arch" type="xml">
-        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="moth">
+        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="month">
           <field name="name"/>
           <field name="nombre"/>
           <field name="telefono"/>
@@ -129,7 +129,7 @@
       </field>
     </record>
 
--->
+
 
 
     <!-- Definición de menús-->
@@ -139,7 +139,7 @@
     <record model="ir.actions.act_window" id="ejemplo.persona_action_window">
       <field name="name">Personas</field>
       <field name="res_model">ejemplo.persona</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <menuitem name="ejemplo" id="ejemplo.menu_root"/>
