@@ -25,6 +25,7 @@ class persona(models.Model):
 	_name = 'ejemplo.persona'
 	_description = 'model persona'
 
-	name = fields.Char('DNI',required=True)
+	name = fields.Char('DNI',required=True,unique=True)
 	nombre = fields.Char(string='Nombre',required=True)
 	telefono = fields.Char(string='Teléfono',required=True)
+	fecha_nacimiento = fields.Date(string="Fevha de nacimiento",required=True)

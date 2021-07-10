@@ -58,7 +58,7 @@
 -->
     <!-- Vistas de persona-->
 
-    <record model="ir.ui.view" id="ejemplo.list_persona">
+    <record model="ir.ui.view" id="ejemplo.persona_list_view">
       <field name="name">ejemplo.persona.view.tree</field>
       <field name="model">ejemplo.persona</field>
       <field name="arch" type="xml">
@@ -66,10 +66,27 @@
           <field name="name"/>
           <field name="nombre"/>
           <field name="telefono"/>
+          <field name="fecha_nacimiento"/>
         </tree>
       </field>
     </record>
 
+
+
+    <record model="ir.ui.view" id="ejemplo.persona_search_view">
+      <field name="name">ejemplo.persona.view.search</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
 
     <record model="ir.ui.view" id="ejemplo.persona_form_view">
       <field name="name">ejemplo.persona.view.form</field>
@@ -87,6 +104,7 @@
                 <separator string="Datos"/>
                 <field name="nombre" placeholder="nombre"/>
                 <field name="telefono"/>
+                <field name="fecha_nacimiento"/>
               </group>
             </group>
           </sheet>
@@ -94,6 +112,25 @@
       </field>
 
     </record>
+
+
+
+
+<!--
+    <record model="ir.ui.view" id="ejemplo.persona_calendar_view">
+      <field name="name">ejemplo.persona.view.calendar</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="moth">
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+        </calendar>
+      </field>
+    </record>
+
+-->
+
 
     <!-- Definición de menús-->
 
