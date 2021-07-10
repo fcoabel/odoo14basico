@@ -1,6 +1,7 @@
 ## Ejemplo básico odoo 14
 
-###Creación de un módulo basico en Odoo 14.
+### Creación de un módulo basico en Odoo 14.
+
 En la carpeta instalacionodoo se  encuentra un script para instalarlo en Linux.
 
 Nos posicionamos en /opt/osoo/odoo y ejecutamos
