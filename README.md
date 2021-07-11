@@ -58,6 +58,103 @@ tamnién tendrá otros campos internos de Odoo.
 ![](images/modelo.png)
 
 ###Creación de vistas
+Añadimos al fichero views/views.xml:
+~~~~
 
+    <!-- Vistas de persona-->
+
+    <record model="ir.ui.view" id="ejemplo.persona_list_view">
+      <field name="name">ejemplo.persona.view.tree</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+          <field name="fecha_nacimiento"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="ejemplo.persona_search_view">
+      <field name="name">ejemplo.persona.view.search</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="ejemplo.persona_form_view">
+      <field name="name">ejemplo.persona.view.form</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <form string="Información persona">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                DNI <field name="name" placeholder="dni"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="telefono"/>
+                <field name="fecha_nacimiento"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+
+<!-- calendar -->
+
+    <record model="ir.ui.view" id="ejemplo.persona_calendar_view">
+      <field name="name">ejemplo.persona.view.calendar</field>
+      <field name="model">ejemplo.persona</field>
+      <field name="arch" type="xml">
+        <calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" color="nombre" mode="month">
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="ejemplo.persona_action_window">
+      <field name="name">Personas</field>
+      <field name="res_model">ejemplo.persona</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem name="ejemplo" id="ejemplo.menu_root"/>
+    <menuitem name="Personas" id="ejemplo.menu_persona" parent="ejemplo.menu_root"/>
+    <menuitem name="List" id="ejemplo.menu_persona_list" parent="ejemplo.menu_persona"
+              action="ejemplo.persona_action_window"/>
+
+~~~~
 
 

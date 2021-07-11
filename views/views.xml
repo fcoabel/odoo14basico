@@ -71,7 +71,7 @@
       </field>
     </record>
 
-
+<!-- search -->
 
     <record model="ir.ui.view" id="ejemplo.persona_search_view">
       <field name="name">ejemplo.persona.view.search</field>
@@ -87,6 +87,9 @@
         </search>
       </field>
     </record>
+
+
+    <!-- form -->
 
     <record model="ir.ui.view" id="ejemplo.persona_form_view">
       <field name="name">ejemplo.persona.view.form</field>
@@ -115,7 +118,7 @@
 
 
 
-
+<!-- calendar -->
 
     <record model="ir.ui.view" id="ejemplo.persona_calendar_view">
       <field name="name">ejemplo.persona.view.calendar</field>
