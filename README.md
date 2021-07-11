@@ -157,4 +157,7 @@ Añadimos al fichero views/views.xml:
 
 ~~~~
 
+Debido a los modelos de seguridad  no, nos aparece el menú de nuestro módulo, este problema lo solucionaremos más adelante, 
+para poder visualizarlo deberemos ser superusuarios (icono bug-> convertirse en superusuario), ya si nos aparecerá nuestro módulo.
+
 
