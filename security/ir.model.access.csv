@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ejemplo_ejemplo,ejemplo.ejemplo,model_ejemplo_ejemplo,base.group_user,1,1,1,1
+access_ejemplo_persona_usuario,ejemplo.persona.usuario,model_ejemplo_persona,ejemplo.group_ejemplo_usuario,1,0,0,0
+access_ejemplo_persona_administrador,ejemplo.persona.administrador,model_ejemplo_persona,ejemplo.group_ejemplo_administrador,1,1,1,1_

@@ -23,8 +23,10 @@
     'depends': ['base'],
 
     # always loaded
+    # el fichero ejmplo_security debe ir antes que ir.model.access
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ejemplo_security.xml',
+        'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
