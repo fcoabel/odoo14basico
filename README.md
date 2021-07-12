@@ -218,9 +218,9 @@ Por último, en __manifest__.py indicaremos la utilización de estos archivos:
  .......................       
 ~~~~
 
-Actualizaremos la aplicación, y podremos entra como administrador, también, si creamos un usuario y le asignamos 
+Actualizaremos la aplicación, y podremos entrar como administrador, también, si creamos un usuario y le asignamos 
 uno de los grupos, éste tendrá acceso. Para poder comprobar el correcto funcionamiento,
-en Ajustes->usuarios y compañias -> grupos , entarán los grupos creados, también podremos crear nuevos usuarios y añadirlos a estos grupos.
+en Ajustes->usuarios y compañias -> grupos , estarán los grupos creados, también podremos crear nuevos usuarios y añadirlos a estos grupos.
 
 
 ### Creación del icono de la aplicación. 
