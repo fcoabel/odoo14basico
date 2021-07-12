@@ -160,4 +160,83 @@ Añadimos al fichero views/views.xml:
 Debido a los modelos de seguridad  no, nos aparece el menú de nuestro módulo, este problema lo solucionaremos más adelante, 
 para poder visualizarlo deberemos ser superusuarios (icono bug-> convertirse en superusuario), ya si nos aparecerá nuestro módulo.
 
+### Modelos de seguridad
+
+Creamos el fichero security/ejemplo_security.xml, en este archivo, definiremos dos grupos(usuario, administrador), en este último, tendrá también 
+los permisos de el grupo usuario (además de los suyos): 
+~~~~
+
+                <field name="implied_ids" eval="[(4, ref('group_ejemplo_usuario'))]"/>
+~~~~
+Añadimos a los usuarios administradores de odoo 
+~~~~
+                <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+~~~~
+De esta forma podrán acceder al módulo sin necesidad de ser superusuario. El contenido del fichero es:
+~~~~
+<?xml version="1.0" encoding="utf-8" ?>
+    <odoo>
+        <data>
+            <!-- Definimos una categoría de seguridad para módulo-->
+            <record model="ir.module.category" id="ejemplo.module_category_ejemplo">
+                <field name="name">Ejemplo</field>
+                <field name="description">Ayuda a gestionar personas</field>
+                <field name="sequence">100</field>
+            </record>
+
+            <record model="res.groups" id="group_ejemplo_usuario">
+                <field name="name">Usuario</field>
+                <field name="category_id" ref="ejemplo.module_category_ejemplo"></field>
+                <field name="comment"> Usuarios solo pueden leer</field>
+            </record>
+
+            <record model="res.groups" id="group_ejemplo_administrador">
+                <field name="name">Administrador</field>
+                <field name="category_id" ref="ejemplo.module_category_ejemplo"></field>
+                <field name="comment"> Administrador pueden leer y escribir</field>
+                <!-- tambien pertenecen al grupo usuario, mirar documentación ORM-->
+                <field name="implied_ids" eval="[(4, ref('group_ejemplo_usuario'))]"/>
+                 <!--Añadimos a los usuarios administradores de odoo -->
+                <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+            </record>
+        </data>
+    </odoo>
+~~~~
+Al fichero security/ir.model.access.csv se cambiará su contenido por
+~~~~
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ejemplo_persona_usuario,ejemplo.persona.usuario,model_ejemplo_persona,ejemplo.group_ejemplo_usuario,1,0,0,0
+access_ejemplo_persona_administrador,ejemplo.persona.administrador,model_ejemplo_persona,ejemplo.group_ejemplo_administrador,1,1,1,1_
+~~~~
+
+Por último, en __manifest__.py indicaremos la utilización de estos archivos:
+~~~~
+........................
+ 'data': [
+        'security/ejemplo_security.xml',
+        'security/ir.model.access.csv',
+ .......................       
+~~~~
+
+Actualizaremos la aplicación, y podremos entra como administrador, también, si creamos un usuario y le asignamos 
+uno de los grupos, éste tendrá acceso. Para poder comprobar el correcto funcionamiento,
+en Ajustes->usuarios y compañias -> grupos , entarán los grupos creados, también podremos crear nuevos usuarios y añadirlos a estos grupos.
+
+
+### Creación del icono de la aplicación. 
+
+Crearemos la carpeta static/description , en esta capeta copiaremos el icono (140x140 png). en el fichero views/views.xml, añadiremos a la etiqueta:
+~~~~
+
+    <menuitem name="ejemplo" id="ejemplo.menu_root" "/>
+    web_icon="ejercicio,static/description/icon.png
+    
+    Quedando así:
+    <menuitem name="ejemplo" id="ejemplo.menu_root" web_icon="ejercicio,static/description/icon.png">
+~~~~
+
+Al actualizar la aplicación el icono aparecerá.
+
+
+
 

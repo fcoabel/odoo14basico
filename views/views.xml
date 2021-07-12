@@ -145,7 +145,8 @@
       <field name="view_mode">tree,form,calendar</field>
     </record>
 
-    <menuitem name="ejemplo" id="ejemplo.menu_root"/>
+    <menuitem name="ejemplo" id="ejemplo.menu_root" web_icon="ejercicio,static/description/icon.png"/>
+
     <menuitem name="Personas" id="ejemplo.menu_persona" parent="ejemplo.menu_root"/>
     <menuitem name="List" id="ejemplo.menu_persona_list" parent="ejemplo.menu_persona"
               action="ejemplo.persona_action_window"/>
