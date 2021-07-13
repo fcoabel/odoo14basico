@@ -235,7 +235,7 @@ Crearemos la carpeta static/description , en esta capeta copiaremos el icono (14
     <menuitem name="ejemplo" id="ejemplo.menu_root" web_icon="ejercicio,static/description/icon.png">
 ~~~~
 
-Al actualizar la aplicación el icono aparecerá.
+Al actualizar la aplicación, el icono aparecerá.
 
 
 
