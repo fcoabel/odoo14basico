@@ -8,14 +8,14 @@
             <field name="telefono">666574636</field>
           </record>
 
-        <record id="object0" model="ejemplo.persona">
+        <record id="object1" model="ejemplo.persona">
             <field name="name">56500678D</field>
             <field name="nombre">Pedro</field>
             <field name="fecha_nacimiento">1900-12-25</field>
             <field name="telefono">32445636</field>
           </record>
 
-        <record id="object0" model="ejemplo.persona">
+        <record id="object2" model="ejemplo.persona">
             <field name="name">24780678D</field>
             <field name="nombre">Felipe</field>
             <field name="fecha_nacimiento">1992-12-25</field>
