@@ -1,8 +1,8 @@
 ## Ejemplo básico odoo 14
 
-### Creación de un módulo basico en Odoo 14.
+### Creación de un módulo básico en Odoo 14.
 
-En la carpeta instalacionodoo se  encuentra un script para instalarlo en Linux.
+En la carpeta instalacionodoo se encuentra un script para instalarlo en Linux.
 
 Nos posicionamos en /opt/osoo/odoo y ejecutamos
 
@@ -17,7 +17,7 @@ Crearemos el siguiente modelo:
 
 ![](images/modelobasedatos.png)
 
- En models/models.py añadimos la defininón del nuevo modelo:
+ En models/models.py añadimos la definición del nuevo modelo:
 ~~~~
 
 from odoo import models, fields, api
@@ -33,7 +33,7 @@ class persona(models.Model):
 
 name es el nombre del campo que se utilizará como índice, siempre se debe llamar así.
 Ahora vamos a comprobar el funcionamiento del modelo creado.
-Cada vez que se modifique un fichero python, deberemos reiniar Odoo.
+Cada vez que se modifique un fichero python, deberemos reiniciar Odoo.
 
 ~~~~
 Para ver el fichero log de Odoo:
@@ -53,7 +53,7 @@ Aplicaciones -> Actualizar lista de aplicaciones
 
 Buscamos nuestro módulo y los instalamos. Una vez instalado el módulo, iremos a:
 Ajustes -> Técnico -> Estructura de la base de datos -> modelos, si todo funciona correctamente, estará nuestro modelo (ejemplo.persona) con los campos creados 
-tamnién tendrá otros campos internos de Odoo.
+también tendrá otros campos internos de Odoo.
 
 ![](images/modelo.png)
 
@@ -157,13 +157,13 @@ Añadimos al fichero views/views.xml:
 
 ~~~~
 
-Debido a los modelos de seguridad  no, nos aparece el menú de nuestro módulo, este problema lo solucionaremos más adelante, 
+Debido a los modelos de seguridad, no nos aparece el menú de nuestro módulo, este problema lo solucionaremos más adelante, 
 para poder visualizarlo deberemos ser superusuarios (icono bug-> convertirse en superusuario), ya si nos aparecerá nuestro módulo.
 
 ### Modelos de seguridad
 
 Creamos el fichero security/ejemplo_security.xml, en este archivo, definiremos dos grupos(usuario, administrador), en este último, tendrá también 
-los permisos de el grupo usuario (además de los suyos): 
+los permisos del grupo usuario (además de los suyos): 
 ~~~~
 
                 <field name="implied_ids" eval="[(4, ref('group_ejemplo_usuario'))]"/>
@@ -220,7 +220,7 @@ Por último, en __manifest__.py indicaremos la utilización de estos archivos:
 
 Actualizaremos la aplicación, y podremos entrar como administrador, también, si creamos un usuario y le asignamos 
 uno de los grupos, éste tendrá acceso. Para poder comprobar el correcto funcionamiento,
-en Ajustes->usuarios y compañias -> grupos , estarán los grupos creados, también podremos crear nuevos usuarios y añadirlos a estos grupos.
+en Ajustes->usuarios y compañías -> grupos , estarán los grupos creados, también podremos crear nuevos usuarios y añadirlos a estos grupos.
 
 
 ### Creación del icono de la aplicación. 
@@ -273,9 +273,9 @@ Creamos la carpeta report, dentro de ella el archivo ejemplo_persona_report.xml 
 </odoo>
 ~~~~
 
-Tenemos que informar a Odoo del la existencia de este ficherp, por lo tanto,
-en __manifest__.py a data añadimos 'report/ejemplo_persona_report.xml', . Actualizaremos el módulo, al 
-marcar uno o varios registros, nos dará la opcion de imprimir, generando un pdf.
+Tenemos que informar a Odoo del la existencia de este fichero, por lo tanto,
+en __manifest__.py  data añadimos 'report/ejemplo_persona_report.xml', . Actualizaremos el módulo, al 
+marcar uno o varios registros, nos dará la opción de imprimir, generando un pdf.
 
 ![](images/report.png)
 
@@ -315,9 +315,9 @@ Editaremos el fichero demo/demo.xml, aquí crearemos todos los registro que nece
 </odoo>
 ~~~~
 
-En este caso, para comprobar el funcionamiento, debemos desintalar el módulo  y volver a instalarlo, sólo 
+En este caso, para comprobar el funcionamiento, debemos desinstalar el módulo y volver a instalarlo, solo 
 se cargan los datos en la instalación, si actualizamos, los datos demo no se introducirán en la base de
- datos. Los datos sólo se cargarán si se seleccionó la 
+ datos. Los datos solo se cargarán si se seleccionó la 
 opción demo en la pantalla de creación de la base de datos.
 
 
