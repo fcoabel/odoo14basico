@@ -311,7 +311,7 @@ Editaremos el fichero demo/demo.xml, aquí crearemos todos los registro que nece
             <field name="telefono">66657456</field>
           </record>
 
-    </data>
+    </data> 
 </odoo>
 ~~~~
 
