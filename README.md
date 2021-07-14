@@ -237,6 +237,89 @@ Crearemos la carpeta static/description , en esta capeta copiaremos el icono (14
 
 Al actualizar la aplicación, el icono aparecerá.
 
+### Realización de informes.
+
+Creamos la carpeta report, dentro de ella el archivo ejemplo_persona_report.xml con el contenido:
+~~~~
+<odoo>
+    <record id="ejemplo.persona_report" model="ir.actions.report">
+        <field name="name"> Informe de personas</field>
+        <field name="model">ejemplo.persona</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ejemplo.persona_report_view</field>
+        <field name="report_file">ejemplo.persona_report</field>
+        <field name="binding_model_id" ref="model_ejemplo_persona"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="persona_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Personas </h1><br />
+                <t t-foreach="docs" t-as="persona">
+                    <ul>
+                        <li>    dni <span t-field="persona.name" /></li>
+                        <li>    nombre <span t-field="persona.nombre" /></li>
+                        <li>    teléfono <span t-field="persona.telefono" /></li>
+
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+~~~~
+
+Tenemos que informar a Odoo del la existencia de este ficherp, por lo tanto,
+en __manifest__.py a data añadimos 'report/ejemplo_persona_report.xml', . Actualizaremos el módulo, al 
+marcar uno o varios registros, nos dará la opcion de imprimir, generando un pdf.
+
+![](images/report.png)
+
+### Datos demo.
+
+Odoo tiene la opción (a la hora de la creación de la base de datos), 
+de instalar el módulo con unos datos de demostración, 
+esto es útil, a la hora de probar el funcionamiento de un módulo.
+
+Editaremos el fichero demo/demo.xml, aquí crearemos todos los registro que necesitemos:
+~~~~
+<odoo>
+    <data>
+
+          <record id="object0" model="ejemplo.persona">
+            <field name="name">24500678D</field>
+            <field name="nombre">Antonio</field>
+            <field name="fecha_nacimiento">2000-12-25</field>
+            <field name="telefono">666574636</field>
+          </record>
+
+        <record id="object1" model="ejemplo.persona">
+            <field name="name">56500678D</field>
+            <field name="nombre">Pedro</field>
+            <field name="fecha_nacimiento">1900-12-25</field>
+            <field name="telefono">32445636</field>
+          </record>
+
+        <record id="object2" model="ejemplo.persona">
+            <field name="name">24780678D</field>
+            <field name="nombre">Felipe</field>
+            <field name="fecha_nacimiento">1992-12-25</field>
+            <field name="telefono">66657456</field>
+          </record>
+
+    </data>
+</odoo>
+~~~~
+
+En este caso, para comprobar el funcionamiento, debemos desintalar el módulo  y volver a instalarlo, sólo 
+se cargan los datos en la instalación, si actualizamos, los datos demo no se introducirán en la base de
+ datos. Los datos sólo se cargarán si se seleccionó la 
+opción demo en la pantalla de creación de la base de datos.
+
 
 
 
