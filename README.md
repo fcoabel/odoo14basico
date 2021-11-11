@@ -4,7 +4,7 @@
 
 En la carpeta instalacionodoo se encuentra un script para instalarlo en Linux.
 
-Nos posicionamos en /opt/osoo/odoo y ejecutamos
+Nos posicionamos en /opt/odoo/odoo y ejecutamos
 
 ~~~~
 sudo ./odoo-bin scaffold ejemplo ./addons/
